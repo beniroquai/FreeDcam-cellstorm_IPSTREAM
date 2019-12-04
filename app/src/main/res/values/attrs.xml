@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="UiSettingsChild">
+        <attr name="HeaderText" format="string"/>
+        <attr name="ValueText" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="SettingsChildMenu">
+        <attr name="Description" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="ManualButton">
+        <attr name="Header" format="string"/>
+        <attr name="Image" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="MyGallery">
+        <attr name="android:galleryItemBackground" />
+    </declare-styleable>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+</resources>

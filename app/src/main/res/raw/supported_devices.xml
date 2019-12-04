@@ -1,0 +1,3952 @@
+<devices>
+
+    <!--
+    <device name ="device_name"> //defines a device
+
+        <models>// different models for same device
+            <item>xxx</item>
+            <item>yyy</item>
+        </models>
+
+        <camera1>//holds camera1 specfic stuff
+            <framework>0</framework> // framework used by the device 0 = android, 1 = LG, 2 = MTK, 3 = Moto_ext
+
+            <opencameralegacy>true</opencameralegacy>//when empty/false default camera gets open
+
+            <zteae>true</zteae>
+
+            <needrestartaftercapture>true</needrestartaftercapture>
+
+            <bust>9</burst> //burst count, not added = unsupported
+
+            <nightmode></nightmode> 0 = xiaomi, 1 = zte, not added = unsupported
+
+            <hdrmode supported="true">0</hdrmode> // xiaomi must get set with nightmode
+
+            <whitebalance sdkint="21">
+                <min></min>
+                <max></max>
+                <step></step>
+                <key></key>
+                <mode></mode>
+            </whitebalance>
+
+            <manualiso supported="true">
+                <framework type="1">
+                    <min></min>
+                    <max></max>
+                    <step></step>
+                    <key></key>
+                </framework> //used for redmi note3, it has same model but different socs: Snap,MTK
+                <min></min>
+                <max></max>
+                <step></step>
+                <key></key>
+                <type>0</type> 0=qcom 1=sony
+                <values></values>
+            </manualiso>
+            <virtuallensfilter></virtuallensfilter>
+           <denoise>false</denoise>
+           <digitalimagestab>false</digitalimagestab>
+
+           <manualfocus version="21">
+                <min></min>
+                <max></max>
+                <step></step>
+                <type></type>
+                <mode></mode>
+                <key></key>
+            </manualfocus>
+
+            <rawformat></rawformat> //to set a default bayer profile wich is known to work on that device.
+            some device have more profiles in the parameters then are supported
+
+            <opticalimagestab>
+                <key></key>
+                <values></values>
+            </opticalimagestab>
+        </camera1>
+
+        <camera2>
+            <forcerawtodng>true</forcerawtodng> //if true freedcam dng converter gets used
+
+            <maxexposuretime version="21">60000000</maxexposuretime> version = sdk when not set overwrite is used in all sdk,
+            used for g4(L supported 60sec, M only 45sec)
+            //ms =60sec, when empty values from camera characteristics gets used
+
+            <minexposuretime></minexposuretime> in ms
+
+            <maxiso>34000</maxiso> overwrite max iso
+        </camera2>
+
+        <opcodes> //used to remove vignett on dngs
+            <camera id="0">  0 = back, 1 = front, 2 = nextcamera etc
+                <opcode2></opcode2>
+                <opcode3></opcode3>
+            <camera>
+        </opcodes>
+
+        <filesize size= "6144000"> holds an dngprofile
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2560</width>
+            <height>1920</height>
+            <rawtype>0</rawtype> // 0 = Mipi, 1 = qcom, 2 = Plain, 3 = mipi16, 4 = mipi12
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+    -->
+
+    <device name ="Alcatel_985n">
+        <models>
+            <item>"Vodafone 985N"</item>
+        </models>
+        <filesize size= "9830400">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2560</width>
+            <height>1920</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Asus_Zenfone_Go">
+        <models>
+            <item>ASUS_X014D</item>
+            <item>ASUS_Z00VD</item>
+        </models>
+        <filesize size= "6144000">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2560</width>
+            <height>1920</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name="Asus_Zenfon2">
+        <string-array>
+            <item>ASUS_Z00ED</item>
+        </string-array>
+    </device>
+
+    <device name ="Blackberry_Priv">
+        <models>
+            <item>STV100</item>
+            <item>STV100-0</item>
+            <item>STV100-1</item>
+            <item>STV100-2</item>
+            <item>STV100-3</item>
+            <item>STV100-4</item>
+            <item>STV100-5</item>
+        </models>
+        <filesize size= "23472640">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4896</width>
+            <height>3672</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Aquaris_E5">
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/Aquaris_E5/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <models>
+            <item>Aquaris E5</item>
+            <item>Aquaris_E5</item>
+        </models>
+        <camera1>
+            <manualiso>
+                <min>100</min>
+                <max>1600</max>
+                <step>50</step>
+                <key>continous-iso</key>
+                <type>0</type>
+            </manualiso>
+            <exposuretime>
+                <values>aquaris_e5_shuttervalues</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>4</type>
+            </exposuretime>
+        </camera1>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Aquaris_M5">
+        <models>
+            <item>Aquaris M5</item>
+        </models>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+    <device name ="Alcatel_Idol3">
+        <models><item>6045Y</item>
+            <item>6045B</item>
+            <item>6045F</item>
+            <item>6045I</item>
+            <item>6045K</item>
+        </models>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern> <!-- could be grbg too -->
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Alcatel_Idol3_small">
+        <models>
+            <item>6039Y</item>
+        </models>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern> <!-- could be grbg too -->
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Elephone_P9000">
+        <models>
+            <item>P9000</item>
+        </models>
+        <filesize size= "26257920">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "25958400">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4160</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "26615808">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4864</width>
+            <height>2736</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="GioneE7">
+        <models>
+            <item>E7</item>
+        </models>
+        <filesize size= "9990144">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>4080</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "10653696">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "19906560">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4608</width>
+            <height>3456</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+        <filesize size= "21233664">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4608</width>
+            <height>3456</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>1</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ForwardArt_MTK">
+        <models>
+            <item>Forward_Art</item>
+            <item>Primo GH2 By NFS GHOST</item>
+        </models>
+        <filesize size= "9830400">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2560</width>
+            <height>1920</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Htc_Evo3d">
+        <models>
+            <item>HTC EVO 3D X515m"</item>
+            <item>HTC X515d</item>
+            <item>HTC ShooterU</item>
+            <item>HTC Shooter</item>
+        </models>
+    </device>
+
+    <device name ="Htc_M8">
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/Htc_M8/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <models>
+            <item>HTC One_M8"</item>
+            <item>One M8</item>
+            <item>HTC One M8</item>
+            <item>831C</item>
+            <item>HTC M8w</item>
+            <item>HTC One_M8</item>
+            <item>HTC_0P6B</item>
+            <item>HTC_0P6B6</item>
+            <item>HTC_M8x</item>
+            <item>HTC One_M8 dual sim</item>
+            <item>HTC M8d</item>
+            <item>HTC6525LVW</item>
+            <item>m8</item>
+            <item>m8wl</item>
+        </models>
+        <camera1>
+            <rawformat>bayer-qcom-10grbg</rawformat>
+        </camera1>
+        <filesize size= "5382641"> <!-- filesize < 6000000 && filesize > 5382641 //qcom -->
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+        <filesize size= "0"> <!-- filesize <= 5382641 && filesize > 5000000 //M8 mipi -->
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>3360</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+        <filesize size= "5447680"> <!-- filesize <= 5382641 && filesize > 5000000 //M8 mipi -->
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Htc_M9">
+        <models>
+            <item>HTC One_M9"</item>
+            <item>HTC One M9</item>
+            <item>0PJA10</item>
+            <item>HTC 0PJA10</item>
+            <item>HTC_M9u</item>
+            <item>HTC6535LRA</item>
+            <item>HTC6535LVW</item>
+            <item>0PJA2</item>
+        </models>
+        <filesize size= "25677824">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5388</width>
+            <height>3752</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "27127808"> <!-- filesize < 6000000 && filesize > 5382641 //qcom -->
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5388</width>
+            <height>3752</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name="htc_m10">
+        <models>
+            <item>HTC One M10</item>
+            <item>HTC 10</item>
+            <item>pmewl_00617</item>
+            <item>htc_pmewl</item>
+        </models>
+    </device>
+
+    <device name ="Htc_One_Sv">
+        <models>
+            <item>HTC One SV</item>
+        </models>
+        <filesize size= "6746112">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Htc_One_Xl">
+        <models>
+            <item>one xl</item>
+        </models>
+        <filesize size= "10782464">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3282</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="HTC_OneA9">
+        <opcodes>
+            <camera id="0">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/HTC_OneA9/opc2.bin?raw=true</opcode2>
+                <opcode3></opcode3>
+            </camera>
+        </opcodes>
+        <models>
+            <item>HTC One A9</item>
+            <item>HTC One_A9</item>
+            <item>One A9</item>
+            <item>One_A9</item>
+        </models>
+        <camera1>
+            <rawformat>bayer-mipi-10bggr</rawformat>
+        </camera1>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="HTC_OneE8">
+        <models>
+            <item>HTC One_E8</item>
+        </models>
+        <filesize size= "16560128">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3136</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="HTC_Desire500">
+        <models>
+            <item>HTC Desire 500</item>
+        </models>
+        <filesize size= "10782464">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3282</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="HTC_Desire830">
+        <models>
+            <item>HTC Desire 830</item>
+            <item>unknown</item>
+        </models>
+        <filesize size= "26257920">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="HTC_OneMini2">
+        <models>
+            <item>HTC One mini 2</item>
+        </models>
+        <filesize size= "16560128">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3136</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Huawei_GX8">
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/Huawei_GX8/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <models>
+            <item>HUAWEI RIO-L01</item>
+            <item>HUAWEI RIO-L02</item>
+            <item>HUAWEI RIO-L03</item>
+            <item>HUAWEI RIO-L04</item>
+            <item>RIO-L01</item>
+            <item>RIO-L02</item>
+            <item>RIO-L03</item>
+            <item>RIO-L04</item>
+        </models>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Huawei_HONOR5x">
+        <models>
+            <item>KIW-L21</item>
+            <item>KIW-L22</item>
+            <item>KIW-L23</item>
+            <item>KIW-L24</item>
+            <item>KIW-CL00</item>
+            <item>KIW-TL00</item>
+            <item>KII-L21</item>
+            <item>KII-L22</item>
+            <item>KII-L23</item>
+            <item>KII-L24</item>
+            <item>HUAWEI KIW-L21</item>
+            <item>HUAWEI KIW-L22</item>
+            <item>HUAWEI KIW-L23</item>
+            <item>HUAWEI KIW-L24</item>
+            <item>HUAWEI KIW-CL00</item>
+            <item>HUAWEI KIW-TL00</item>
+            <item>HUAWEI -L21</item>
+            <item>HUAWEI KII-L22</item>
+            <item>HUAWEI KII-L23</item>
+            <item>HUAWEI KII-L24</item>
+        </models>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/Huawei_HONOR5x/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="I_Mobile_I_StyleQ6">
+        <models>
+            <item>i-mobile i-STYLE Q6</item>
+        </models>
+        <filesize size= "9631728">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2532</width>
+            <height>1902</height>
+            <rawtype>2</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="InFocus_M808">
+        <models>
+            <item>InFocus M808</item>
+        </models>
+        <filesize size= "26023936">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Lumigon</matrixset>
+        </filesize>
+    </device>
+
+    <device name="Google_Pixel">
+        <models>
+            <item>Pixel</item>
+            <item>Pixel XL</item>
+        </models>
+    </device>
+
+    <device name ="Jiayu_S3">
+        <models>
+            <item>JY-S3</item>
+            <item>Jiayu S3</item>
+            <item>h560</item>
+            <item>S3</item>
+            <item>Jiayu_S3</item>
+        </models>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/Jiayu_S3/opc2.bin?raw=true</opcode2>
+                <opcode3></opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LeEco_Cool1">
+        <models>
+            <item>C106</item>
+        </models>
+
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name="lenovo_vibe_x3">
+        <models>
+            <item>Lenovo X3a40</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+
+        <filesize size= "26935296">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>4017</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+        <filesize size= "10186752">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2472</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LenovoK910">
+        <models>
+            <item>Lenovo K910</item>
+        </models>
+
+        <filesize size= "6721536">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1296</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LenovoK920">
+        <models>
+            <item>Lenovo K920</item>
+            <item>K920</item>
+            <item>K920 (ROW)</item>
+            <item>K920 (CN)</item>
+        </models>
+
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5328</width>
+            <height>3000</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Lenovo_K4Note_MTK">
+        <models>
+            <item>Lenovo A7010a48</item>
+        </models>
+        <filesize size= "19992576">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LenovoP2a42">
+        <models>
+            <item>Lenovo P2a42</item>
+        </models>
+        <filesize size= "16310272">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4160</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx268</matrixset> <!-- Imx258 -->
+        </filesize>
+    </device>
+
+    <device name ="Lenovo_K50_MTK">
+        <models>
+            <item>Lenovo K50-t5</item>
+            <item>K50-t5</item>
+        </models>
+        <filesize size= "26023936">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Lenovo_VibeP1">
+        <models>
+            <item>Lenovo P1a42</item>
+            <item>Lenovo_P1a42</item>
+        </models>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Lenovo_VibeShot_Z90">
+        <models>
+            <item>Lenovo Z90a40</item>
+        </models>
+        <filesize size= "19992576">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5328</width>
+            <height>3000</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Lenovo_VibeShot_Z90">
+        <models>
+            <item>Lenovo Z90a40</item>
+        </models>
+        <filesize size= "26935296">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>4017</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+        <filesize size= "10186752">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2472</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LG_G2">
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/LG_G2/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <models>
+            <item>LG-D800</item>
+            <item>LG-D801</item>
+            <item>LG-D802</item>
+            <item>LG-D802T</item>
+            <item>LG-D802TR</item>
+            <item>LG-D803</item>
+            <item>LG-D804</item>
+            <item>LG-D805</item>
+            <item>LG-D806</item>
+            <item>LG-D820</item>
+            <item>LG-F320</item>
+            <item>LG-F320S</item>
+            <item>LG-F320L</item>
+            <item>LG-F320K</item>
+            <item>LG-VS980</item>
+            <item>LG-LS980</item>
+            <item>L-01F</item>
+            <item>L-01F g2</item>
+            <item>g2</item>
+            <item>VS980 4G</item>
+        </models>
+        <camera1>
+            <burst>7</burst>
+            <hdrmode supported="true">2</hdrmode>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>-1</type>
+                <mode>normal</mode>
+                <key>manualfocus_step</key>
+            </manualfocus>
+
+            <rawformat>bayer-mipi-10bggr</rawformat>
+
+            <opticalimagestab>
+                <key>ois-ctrl</key>
+                <values>preview-capture,capture,video,centering-only,centering-off</values>
+            </opticalimagestab>
+        </camera1>
+        <filesize size= "16224256">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3082</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LG_G2pro">
+        <models>
+            <item>LG-D838</item>
+        </models>
+        <camera1>
+            <exposuretime>
+                <values>shutter_lg_g2pro</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>8</type>
+            </exposuretime>
+            <opticalimagestab>
+                <key>ois-ctrl</key>
+                <values>preview-capture,capture,video,centering-only,centering-off</values>
+            </opticalimagestab>
+        </camera1>
+        <filesize size= "16224256">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3082</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LG_G4">
+        <models>
+            <item>LG-AS986</item>
+            <item>LG-AS811</item>
+            <item>LG-AS991</item>
+            <item>LG-F500K</item>
+            <item>LG-F500L</item>
+            <item>LG-F500S</item>
+            <item>LG-H810</item>
+            <item>LG-H811</item>
+            <item>LG-H812</item>
+            <item>LG-H815</item>
+            <item>LG-H815P</item>
+            <item>LG-H818P</item>
+            <item>LG-H818</item>
+            <item>LG-H818N</item>
+            <item>LG-H819</item>
+            <item>LG-LS991</item>
+            <item>LGLS991</item>
+            <item>LGUS991</item>
+            <item>LGV32</item>
+            <item>VS986</item>
+        </models>
+        <camera1>
+            <opencameralegacy>true</opencameralegacy>
+            <burst>6</burst>
+            <manualfocus>
+                <min>0</min>
+                <max>60</max>
+                <step>1</step>
+                <type>-1</type>
+                <mode>manual</mode>
+                <key>manualfocus_step</key>
+            </manualfocus>
+        </camera1>
+
+        <camera2>
+            <maxexposuretime version="21">60000000</maxexposuretime>
+            <maxexposuretime version="23">45000000</maxexposuretime>
+        </camera2>
+        <filesize size= "19976192">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5312</width>
+            <height>2988</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LG_G3">
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/LG_G3/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <models>
+            <item>AS985</item>
+            <item>LG-AS990</item>
+            <item>LG-D850</item>
+            <item>LG-D851</item>
+            <item>LG-D852</item>
+            <item>LG-D852G</item>
+            <item>LG-D855</item>
+            <item>LG-D856</item>
+            <item>LG-D857</item>
+            <item>LG-D858</item>
+            <item>LG-D858HK</item>
+            <item>LG-D859</item>
+            <item>LG-F400K</item>
+            <item>LG-F400L</item>
+            <item>LG-F400S</item>
+            <item>LGL24</item>
+            <item>LGLS990</item>
+            <item>LGUS990</item>
+            <item>LGV31</item>
+            <item>LG VS985 4G</item>
+            <item>LG VS985</item>
+            <item>L-02F</item>
+        </models>
+        <camera1>
+            <burst>6</burst>
+            <manualiso supported="false"></manualiso>
+            <exposuretime></exposuretime>
+            <hdrmode supported="true">2</hdrmode>
+
+            <manualfocus version="23">
+                <min>0</min>
+                <max>1023</max>
+                <step>10</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+            <manualfocus version="21">
+            </manualfocus>
+            <manualfocus version="19">
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>-1</type>
+                <mode>normal</mode>
+                <key>manualfocus_step</key>
+            </manualfocus>
+
+            <opticalimagestab>
+                <key>ois-ctrl</key>
+                <values>preview-capture,capture,video,centering-only,centering-off</values>
+            </opticalimagestab>
+        </camera1>
+        <filesize size= "2658304">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1212</width>
+            <height>1096</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>2424</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "2842624">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1296</width>
+            <height>1096</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+
+        <filesize size= "16224256">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3082</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5260</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5260</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+
+        <filesize size= "17326080">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4164</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3082</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="LG_L5">
+        <models>
+            <item>LG-E615</item>
+        </models>
+        <filesize size= "6659840">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2580</width>
+            <height>1920</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <!--- missing filesize
+
+    <device name ="LG_V20">
+        <models><item>LG-H918</item></models>
+        <camera1>
+            <manualfocus>
+                <min>0</min>
+                <max>60</max>
+                <step>1</step>
+                <type>-1</type>
+                <mode>manual</mode>
+                <key>manualfocus_step</key>
+            </manualfocus>
+        </camera1>
+        <camera2>
+            <maxexposuretime>90000000</maxexposuretime>
+        </camera2>
+        <filesize size= "6659840">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4656</width>
+            <height>3492</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx298</matrixset>
+        </filesize>
+    </device> -->
+
+    <!--- missing filesize
+
+    <device name ="Lumigon_T3">
+    <models><item>Lumigon_T3</item></models>
+        <filesize size= "6659840">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Lumigon</matrixset>
+        </filesize>
+    </device> -->
+
+    <device name ="MeizuU10">
+        <models>
+            <item>U10</item>
+        </models>
+        <filesize size= "26257920">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MeizuM1Metal_MTK">
+        <models>
+            <item>m1 metal</item>
+        </models>
+        <filesize size= "26492928">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3136</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Lumigon</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Meizu_M3_Note">
+        <models>
+            <item>m3 note</item>
+        </models>
+        <filesize size= "26492928">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3136</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Lumigon</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MeizuMX4_MTK">
+        <models>
+            <item>MX4</item>
+        </models>
+        <filesize size= "41312256">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5248</width>
+            <height>3936</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx220</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MeizuMX5_MTK">
+        <models>
+            <item>MX5</item>
+        </models>
+        <filesize size= "41312256">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5248</width>
+            <height>3936</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx220</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Meizu_m2Note_MTK">
+        <models>
+            <item>m2 note</item>
+            <item>m2</item>
+        </models>
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX298_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Mlais_M52_Red_Note_MTK">
+        <models>
+            <item>M52_Red_Note</item>
+        </models>
+        <filesize size= "15980544">
+            <blacklvl>65</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Moto_X_Style_Pure_Play">
+        <models>
+            <item>XT1560</item>
+            <item>XT1561</item>
+            <item>XT1562</item>
+            <item>XT1563</item>
+            <item>XT1564</item>
+            <item>XT1565</item>
+            <item>XT1566</item>
+            <item>XT1567</item>
+            <item>XT1568</item>
+            <item>XT1570</item>
+            <item>XT1571</item>
+            <item>XT1572</item>
+            <item>XT1573</item>
+            <item>XT1574</item>
+            <item>XT1575</item>
+            <item>XT1576</item>
+            <item>XT1577</item>
+            <item>XT1578</item>
+        </models>
+        <camera2>
+            <maxexposuretime>10000000</maxexposuretime>
+        </camera2>
+        <filesize size= "42923008">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>4016</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+        <filesize size= "26935296">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>4016</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MotoG3">
+        <models>
+            <item>MotoG3</item>
+        </models>
+        <camera1>
+            <needrestartaftercapture>true</needrestartaftercapture>
+            <rawformat>bayer-qcom-10rggb</rawformat>
+            <manualiso supported="true">
+                <min>50</min>
+                <max>3200</max>
+                <step>50</step>
+                <key>continous-iso</key>
+                <type>0</type>
+            </manualiso>
+            <exposuretime>
+                <values>aquaris_e5_shuttervalues</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>4</type>
+            </exposuretime>
+        </camera1>
+        <filesize size= "17326080">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4164</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MotoG_Turbo">
+        <models>
+            <item>MotoG3-TE</item>
+        </models>
+        <camera1>
+            <needrestartaftercapture>true</needrestartaftercapture>
+            <rawformat>bayer-qcom-10rggb</rawformat>
+        </camera1>
+        <filesize size= "17326080">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4164</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Moto_ZPlay">
+        <models>
+            <item>XT1635-02</item>
+            <item>XT1635-01</item>
+            <item>XT1635-00</item>
+            <item>XT1635</item>
+        </models>
+        <filesize size= "19906560">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4608</width>
+            <height>3456</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5246</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="SamsungJ7">
+        <models>
+            <item>SM-J710MN</item>
+            <item>SM-J710M</item>
+            <item>SM-J710</item>
+        </models>
+        <camera1>
+            <manualfocus>
+            </manualfocus>
+        </camera1>
+
+        <camera2>
+            <forcerawtodng>true</forcerawtodng>
+        </camera2>
+    </device>
+
+    <device name ="Moto_X2k14">
+        <models>
+            <item>XT1090</item>
+            <item>XT1091</item>
+            <item>XT1092</item>
+            <item>XT1093</item>
+            <item>XT1094</item>
+            <item>XT1095</item>
+        </models>
+        <camera1>
+            <manualfocus>
+            </manualfocus>
+        </camera1>
+
+        <camera2>
+            <forcerawtodng>true</forcerawtodng>
+        </camera2>
+    </device>
+
+
+    <device name ="MOTOG_2k14">
+        <models>
+            <item>Moto G 2014</item>
+        </models>
+        <filesize size= "9990144">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5246</rowsize>
+            <matrixset>Imx179</matrixset>
+        </filesize>
+        <filesize size= "10653696">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx179</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="MyPhone_Infinity2S">
+        <models>
+            <item>INFINITY_II_S</item>
+        </models>
+        <filesize size= "15980544">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="OnePlusOne">
+        <models>
+            <item>A0001</item>
+            <item>One</item>
+        </models>
+        <opcodes>
+            <camera id="0">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/OnePlusOne/opc2.bin?raw=true</opcode2>
+                <opcode3></opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5260</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "16473600">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5260</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5260</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="OnePlusTwo">
+        <models>
+            <item>ONE A2001</item>
+            <item>ONE A2003</item>
+            <item>ONE A2005</item>
+            <item>ONE A2004</item>
+            <item>A2001</item>
+            <item>A2003</item>
+            <item>A2005</item>
+            <item>A2004</item>
+        </models>
+        <camera2>
+            <forcerawtodng>true</forcerawtodng>
+            <maxexposuretime>32000000</maxexposuretime>
+        </camera2>
+
+        <filesize size= "26357760">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="OnePlusX">
+        <models>
+            <item>ONE E1003</item>
+            <item>ONE E1002</item>
+            <item>ONE E1001</item>
+        </models>
+        <filesize size= "9990144">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5246</rowsize>
+            <matrixset>OV8858_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "10653696">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5280</rowsize>
+            <matrixset>OV8858_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>s5k3m2xx_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Prestigio_Multipad_Color">
+        <models>
+            <item>PMT5777_3G</item>
+        </models>
+        <filesize size= "3763584">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1584</width>
+            <height>1188</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Retro_MTK">
+        <models>
+            <item>Retro</item>
+        </models>
+
+        <filesize size= "26023936">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>3360</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="SonyM5_MTK">
+        <models>
+            <item>E5633</item>
+            <item>E5643</item>
+            <item>E5663</item>
+        </models>
+        <filesize size= "42923008">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>4016</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx230</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="SonyM4_QC">
+        <models>
+            <item>E2303</item>
+            <item>E2306</item>
+            <item>E2353</item>
+        </models>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/SonyM4_QC/opc2.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="SonyC4_MTK">
+        <models>
+            <item>E5333</item>
+            <item>E5343</item>
+            <item>E5363</item>
+        </models>
+
+        <filesize size= "26257920">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="SonyC5_MTK">
+        <models>
+            <item>E5533</item>
+            <item>E5563</item>
+        </models>
+
+        <filesize size= "26257920">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Sony_XperiaL">
+        <models>
+            <item>C2104</item>
+            <item>C2105</item>
+        </models>
+
+        <filesize size= "10788864">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3282</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>4376</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Sony_Z5C">
+        <models>
+            <item>E5823</item>
+        </models>
+
+        <filesize size= "28721152">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5520</width>
+            <height>4160</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>6904</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name="sony_adv">
+        <models>
+            <item>C66</item>
+            <item>C69</item>
+            <item>C65</item>
+            <item>C64</item>
+            <item>D65</item>
+            <item>D66</item>
+        </models>
+
+    </device>
+
+    <device name ="THL100s_MTK">
+        <models>
+            <item>S5008</item>
+        </models>
+
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="THL5000_MTK">
+        <models>
+            <item>thl 5000</item>
+        </models>
+
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Umi_Rome_X">
+        <models>
+            <item>ROME_X</item>
+        </models>
+
+        <filesize size= "15360000">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3200</width>
+            <height>2400</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx179</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Vivo_Xplay3s">
+        <models>
+            <item>vivo Xplay3S</item>
+        </models>
+        <camera1>
+            <manualfocus>
+            </manualfocus>
+        </camera1>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Vivo_V3">
+        <models>
+            <item>vivo V3</item>
+        </models>
+
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Wiko_Stairway">
+        <models>
+            <item>STAIRWAY</item>
+        </models>
+
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Wileyfox_Swift">
+        <models>
+            <item>Wileyfox Swift</item>
+        </models>
+
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Mi_Max">
+        <models>
+            <item>MI MAX</item>
+        </models>
+
+        <filesize size= "20557824">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4672</width>
+            <height>3505</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI3W">
+        <models>
+            <item>MI 3W</item>
+        </models>
+        <camera1>
+            <burst>6</burst>
+            <nightmode>0</nightmode>
+            <hdrmode supported="true">0</hdrmode>
+            <manualiso supported="false"></manualiso>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual-cct</mode>
+            </whiteblance>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMI3W/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "17522688">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "2969600">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "3170304">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI4W">
+        <models>
+            <item>MI 4</item>
+            <item>MI 4i</item>
+            <item>MI 4W</item>
+            <item>MI 4LTE</item>
+        </models>
+        <camera1>
+            <burst>7</burst>
+            <nightmode>0</nightmode>
+            <hdrmode supported="true">0</hdrmode>
+            <manualiso supported="false"></manualiso>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual-cct</mode>
+            </whiteblance>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMI4W/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+        <filesize size= "17522688">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "2969600">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "3170304">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI4C">
+        <models>
+            <item>Mi-4c</item>
+            <item>MI 4C</item>
+        </models>
+        <camera1>
+            <nightmode>0</nightmode>
+            <burst>6</burst>
+            <manualiso supported="false"></manualiso>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual-cct</mode>
+            </whiteblance>
+        </camera1>
+        <filesize size= "17522688">
+            <blacklvl>0</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "2969600">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "3170304">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>1976</width>
+            <height>1200</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI4s">
+        <models>
+            <item>MI 4S</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI5">
+        <models>
+            <item>MI 5</item>
+            <item>MI_5</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+            <opticalimagestab>
+                <key>ois</key>
+                <values>enable,disable</values>
+            </opticalimagestab>
+        </camera1>
+        <filesize size= "20500480">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4652</width>
+            <height>3520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX298_SEMCO</matrixset>
+        </filesize>
+        <filesize size= "5160960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI5s">
+        <models><item>MI 5s</item></models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "15581184">
+            <blacklvl>50</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4056</width>
+            <height>3040</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx378</matrixset>
+        </filesize>
+        <filesize size= "5160960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI5s_plus">
+        <models><item>MI 5s Plus</item></models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>50</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX258_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "5160960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_MI5x">
+        <models>
+            <item>MI 5x</item>
+            <item>MI A1</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "15728640">
+            <blacklvl>50</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4096</width>
+            <height>3072</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV16860_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3L8_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI6">
+        <models><item>MI 6</item></models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+            <manualiso supported="true">
+                <min>100</min>
+                <max>1600</max>
+                <step>100</step>
+                <key>iso</key>
+                <type>0</type>
+            </manualiso>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMi6/opc2.bin?raw=true</opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMi6/opc3.bin?raw=true</opcode3>
+            </camera>
+            <camera id="1">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMi6/opc2_front.bin?raw=true</opcode2>
+            </camera>
+            <camera id="2">
+                <opcode2>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/XiaomiMi6/opc2_aux.bin?raw=true</opcode2>
+            </camera>
+        </opcodes>
+
+        <filesize size= "15482880">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4032</width>
+            <height>3016</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx386</matrixset>
+        </filesize>
+        <filesize size= "10842112">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3872</width>
+            <height>2192</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx268</matrixset>
+        </filesize>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>	
+
+    <device name ="XiaomiMI_Note_Pro">
+        <models>
+            <item>MI NOTE Pro</item>
+        </models>
+        <camera1>
+            <nightmode>0</nightmode>
+            <hdrmode supported="true">0</hdrmode>
+            <nightmode>0</nightmode>
+            <burst>5</burst>
+        </camera1>
+        <filesize size= "17612800">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "6721536">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1296</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "16560128">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3082</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "5160960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI_Note_2">
+        <models>
+            <item>MI NOTE 2</item>
+        </models>
+        <camera1>
+            <nightmode>0</nightmode>
+            <hdrmode supported="true">0</hdrmode>
+            <nightmode>0</nightmode>
+            <burst>5</burst>
+        </camera1>
+        <filesize size= "10842112">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3872</width>
+            <height>2192</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx268</matrixset>
+        </filesize>
+     </device>
+
+    <device name ="XiaomiMI_Note_3">
+        <models><item>MI NOTE 3</item></models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "15482880">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4032</width>
+            <height>3016</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx386</matrixset>
+        </filesize>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI_Max">
+        <models>
+            <item>MI MAX</item>
+            <item>MI MAX PRIME</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "20389888">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4632</width>
+            <height>3480</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3P3</matrixset>
+        </filesize>
+        <filesize size= "20557824">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4672</width>
+            <height>3504</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV16860_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI_Max_2">
+        <models>
+            <item>MI MAX 2</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "15482880">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4032</width>
+            <height>3016</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx386</matrixset>
+        </filesize>
+        <filesize size= "15728640">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4096</width>
+            <height>3072</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV16860_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI_Mix">
+        <models>
+            <item>MI MIX</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "20557824">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4672</width>
+            <height>3504</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV16860_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="XiaomiMI_Mix_2">
+        <models><item>MI MIX 2</item></models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "15482880">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4032</width>
+            <height>3016</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx386</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi2">
+        <models>
+            <item>HM2014811</item>
+            <item>HM2014812</item>
+            <item>HM2014813</item>
+            <item>HM2014815</item>
+            <item>HM2014816</item>
+            <item>HM2014817</item>
+            <item>HM2014818</item>
+            <item>HM2014819</item>
+            <item>2014811</item>
+            <item>2014812</item>
+            <item>2014813</item>
+            <item>2014814</item>
+            <item>2014815</item>
+            <item>2014816</item>
+            <item>2014817</item>
+            <item>2014818</item>
+            <item>2014819</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+            <exposuretime>
+                <values>shutter_values_zte_z5s</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>3</type>
+            </exposuretime>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+        <filesize size= "9990144">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>4880</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "10653696">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi3">
+        <models>
+            <item>Redmi 3</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+            <hdrmode supported="true">0</hdrmode>
+            <nightmode>0</nightmode>
+        </camera1>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi3S">
+        <models>
+            <item>Redmi 3S</item>
+            <item>Redmi 3X</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3L8_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi4">
+        <models>
+            <item>Redmi 4</item>
+            <item>Redmi 4X</item>
+            <item>Redmi 4 Prime</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3L8_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi4A">
+        <models>
+            <item>Redmi 4A</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "16560128">
+            <blacklvl>10</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5280</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi5">
+        <models>
+            <item>Redmi 5</item>
+            <item>Redmi 5 Plus</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "15728640">
+            <blacklvl>50</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4096</width>
+            <height>3072</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV16860_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi5A">
+        <models>
+            <item>Redmi 5A</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3L8_Qualcomm</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_RedmiNote">
+        <models>
+            <item>HM NOTE 1LTE</item>
+            <item>HM NOTE 1LTETD</item>
+            <item>HM NOTE 1LTEW</item>
+            <item>MI NOTE LTE</item>
+        </models>
+        <camera1>
+            <nightmode>0</nightmode>
+            <hdrmode supported="true">0</hdrmode>
+            <burst>5</burst>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3082</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx214</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3082</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5246</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "5160960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2688</width>
+            <height>1520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV4688</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_RedmiNote2_MTK">
+        <models>
+            <item>Redmi Note 2</item>
+        </models>
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi_Note3">
+        <models>
+            <item>Redmi Note 3 pro</item>
+            <item>Redmi Note 3 Pro</item>
+            <item>Redmi_Note 3_pro</item>
+            <item>Redmi Note 3_pro</item>
+            <item>Redmi Note 3</item>
+            <item>Xiaomi Redmi Note 3</item>
+            <item>kenzo</item>
+            <item>Kenzo</item>
+        </models>
+        <camera1>
+            <!--<framework>0</framework>-->
+            <hdrmode supported="true">0</hdrmode>
+            <nightmode>0</nightmode>
+            <manualiso supported="true">
+                <framework type="MTK"> <!-- mtk support it -->
+                    <min>100</min>
+                    <max>2700</max>
+                    <step>100</step>
+                    <key>m-sr-g</key>
+                    <type>2</type>
+                </framework>
+                <framework type="Xiaomi"> <!-- unsupported by the snap -->
+                </framework>
+            </manualiso>
+        </camera1>
+        <filesize size= "26023936">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4192</width>
+            <height>3104</height>
+            <rawtype>2</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "20389888">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4632</width>
+            <height>3520</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3P3</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi_Note_4">
+        <models>
+            <item>Redmi Note4---</item>
+            <item>Redmi Note4</item>
+            <item>Redmi Note 4</item>
+            <item>Redmi Note 4X</item>
+        </models>
+        <camera1>
+            <manualiso supported="true"></manualiso>
+            <hdrmode supported="true">0</hdrmode>
+            <nightmode>0</nightmode>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+        <filesize size= "16560128"> <!-- redmi note4x omnivision -->
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4224</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "26492928"> <!-- redmi note4x omnivision cam2-->
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4160</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+        <filesize size= "6430720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>gbrg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+
+        <!-- Redmi Note 4x Samsung cam1 -->
+        <!--> <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize> -->
+    </device>
+
+    <device name ="Xiaomi_RedmiNote5">
+        <models>
+            <item>MI NOTE 5A</item>
+            <item>MI NOTE 5 Prime</item>
+        </models>
+        <camera1>
+            <digitalimagestab>false</digitalimagestab>
+        </camera1>
+        <filesize size= "16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3M3</matrixset>
+        </filesize>
+    </device>
+
+    <device name="Redmi Note 5A">
+        <models>
+            <item>Redmi Note 5A</item>
+        </models>
+        <opcodes>
+        </opcodes>
+        <filesize size="16510976">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>3</rawtype>
+            <colorpattern>grbg</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>S5K3L8_Qualcomm</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Xiaomi_Redmi_Pro">
+        <models>
+            <item>Redmi Pro</item>
+        </models>
+        <camera1>
+            <manualiso supported="false"></manualiso>
+        </camera1>
+        <filesize size= "26257920">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx179</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Moto_G5_p">
+        <models>
+            <item>Moto G (5) Plus</item>
+        </models>
+        <camera1>
+            <!--<framework>0</framework>-->
+            <opencameralegacy>true</opencameralegacy>
+            <hdrmode supported="true">3</hdrmode>
+        </camera1>
+
+        <filesize size= "15482880">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4032</width>
+            <height>3024</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx362</matrixset>
+        </filesize>
+
+        <filesize size= "3870720">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2016</width>
+            <height>1512</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx362</matrixset>
+        </filesize>
+
+    </device>
+
+    <device name ="Xolo_Omega5">
+        <models>
+            <item>Omega 5.0</item>
+        </models>
+
+        <filesize size= "15980544">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>2</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Yu_Yuphoria">
+        <models>
+            <item>YU5010</item>
+            <item>YU5010A</item>
+        </models>
+
+        <filesize size= "9990144">
+            <blacklvl>5</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>3264</width>
+            <height>2448</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>4080</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Yu_Yureka">
+        <models>
+            <item>YUREKA</item>
+            <item>AO5510</item>
+            <item>Yureka</item>
+            <item>A05510</item>
+            <item>YU5510</item>
+        </models>
+
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Sony_T2_Ultra">
+        <models>
+            <item>D5303</item>
+        </models>
+        <camera1>
+            <burst>7</burst>
+            <nightmode>1</nightmode>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+            <exposuretime>
+                <values>shutter_values_zte_z5s</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>9</type>
+            </exposuretime>
+            <virtuallensfilter>true</virtuallensfilter>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/ZTE_ADV/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "6299648">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+        <filesize size= "12460032">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>2367</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+        <filesize size= "4108288">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2104</width>
+            <height>1560</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ZTE_ADV">
+        <models>
+            <item>NX503A</item>
+            <item>NX503J</item>
+            <item>NX501</item>
+            <item>Z5s</item>
+            <item>NX601J</item>
+        </models>
+        <camera1>
+            <zteae>true</zteae>
+            <burst>7</burst>
+            <nightmode>1</nightmode>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+            <exposuretime>
+                <values>shutter_values_zte_z5s</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>9</type>
+            </exposuretime>
+            <virtuallensfilter>true</virtuallensfilter>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/ZTE_ADV/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "6299648">
+            <blacklvl>16</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1944</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OV5648</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+        <filesize size= "12460032">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>2367</height>
+            <rawtype>0</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+        <filesize size= "4108288">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2104</width>
+            <height>1560</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>IMX135_Z5S_JB</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ZTEADVIMX214">
+        <models>
+            <item>NX505J</item>
+            <item>NX506J</item>
+            <item>NX507J</item>
+        </models>
+        <camera1>
+            <zteae>true</zteae>
+            <burst>7</burst>
+            <nightmode>1</nightmode>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+
+            <exposuretime>
+                <values>shutter_values_zte_z7</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>9</type>
+            </exposuretime>
+
+            <manualfocus>
+                <min>0</min>
+                <max>100</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+        <filesize size= "6721536">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>2592</width>
+            <height>1296</height>
+            <rawtype>1</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Omnivision</matrixset>
+        </filesize>
+        <filesize size= "16424960">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3120</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>5264</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+        <filesize size= "17522688">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ZTEADV234">
+        <models>
+            <item>NX508J</item>
+            <item>NX509J</item>
+            <item>NX510J</item>
+            <item>NX511J</item>
+            <item>NX512J</item>
+        </models>
+        <camera1>
+            <zteae>true</zteae>
+            <burst>7</burst>
+            <nightmode>1</nightmode>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+            <exposuretime>
+                <values>shutter_values_zte_z7</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>9</type>
+            </exposuretime>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+
+        <opcodes>
+            <camera id="0">
+                <opcode2></opcode2>
+                <opcode3>https://github.com/KillerInk/FreeDcam_opcodes/blob/master/ZTEADV234/opc3.bin?raw=true</opcode3>
+            </camera>
+        </opcodes>
+
+        <filesize size= "20041728">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5344</width>
+            <height>3000</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ZTE_Z11">
+        <models>
+            <item>NX523J</item>
+            <item>NX523J_V0</item>
+            <item>NX523J_V1</item>
+            <item>NX523J_V2</item>
+            <item>NX523J_V3</item>
+            <item>NX5222</item>
+        </models>
+        <camera1>
+            <nightmode>1</nightmode>
+            <whiteblance>
+                <min>2000</min>
+                <max>8000</max>
+                <step>100</step>
+                <key>wb-manual-cct</key>
+                <mode>manual</mode>
+            </whiteblance>
+            <exposuretime>
+                <values>shutter_values_zte_z7</values> <!-- see shutter_values.xml -->
+                <key>exposure-time</key>
+                <type>9</type>
+            </exposuretime>
+            <virtuallensfilter>true</virtuallensfilter>
+            <manualfocus>
+                <min>0</min>
+                <max>79</max>
+                <step>1</step>
+                <type>1</type>
+                <mode>manual</mode>
+                <key>manual-focus-position</key>
+            </manualfocus>
+        </camera1>
+        <filesize size= "20500480">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4656</width>
+            <height>3456</height>
+            <rawtype>3</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>IMX298_SEMCO</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="ZTE_Z5SMINI">
+        <models>
+            <item>NX403A</item>
+        </models>
+        <camera1>
+            <nightmode>1</nightmode>
+            <virtuallensfilter>true</virtuallensfilter>
+        </camera1>
+        <filesize size= "17522688"> <!-- filesize could be wrong -->
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4212</width>
+            <height>3120</height>
+            <rawtype>1</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>G4</matrixset>
+        </filesize>
+    </device>
+
+    <device name="ZTE_Z5">
+        <models>
+            <item>Z5</item>
+        </models>
+        <camera1>
+            <nightmode>1</nightmode>
+        </camera1>
+    </device>
+
+    <device name ="ZTE_ZMAX_PRO">
+        <models>
+            <item>Z981</item>
+        </models>
+        <camera1>
+            <nightmode>1</nightmode>
+        </camera1>
+        <filesize size= "16510976"> <!-- filesize could be wrong -->
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4208</width>
+            <height>3136</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Imx135</matrixset>
+        </filesize>
+    </device>
+
+    <device name="ZTE_MyPrague">
+        <models>
+            <item>NX403oA</item>
+        </models>
+    </device>
+
+    <device name ="Nexus6p">
+        <models>
+            <item>Nexus 6P</item>
+        </models>
+        <filesize size= "15428880"> <!-- filesize could be wrong -->
+            <blacklvl>52</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4080</width>
+            <height>3028</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name ="Nexus5x">
+        <models>
+            <item>Nexus 5X</item>
+        </models>
+
+        <filesize size= "15428880"> <!-- filesize could be wrong -->
+            <blacklvl>52</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4080</width>
+            <height>3028</height>
+            <rawtype>3</rawtype>
+            <colorpattern>bggr</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+
+    <device name="Huawei_P8Lite">
+        <models>
+            <item>hi6210sft</item>
+        </models>
+        <camera1>
+            <denoise>false</denoise>
+            <opticalimagestab>
+                <key>hw_ois_enalbe</key>
+                <values>on,off</values>
+            </opticalimagestab>
+        </camera1>
+    </device>
+
+    <device name="Huawei_p8">
+        <models>
+            <item>hi6210sft</item>
+        </models>
+        <camera1>
+
+            <denoise>false</denoise>
+        </camera1>
+    </device>
+
+    <device name="Huawei_Honor6">
+        <models>
+            <item>hi6210sft</item>
+        </models>
+    </device>
+
+    <device name="Huawei_Honor5X">
+        <models >
+            <item>KIW-L21</item>
+            <item>KIW-L22</item>
+            <item>KIW-L23</item>
+            <item>KIW-L24</item>
+            <item>KIW-CL00</item>
+            <item>KIW-TL00</item>
+            <item>KII-L21</item>
+            <item>KII-L22</item>
+            <item>KII-L23</item>
+            <item>KII-L24</item>
+            <item>HUAWEI KIW-L21</item>
+            <item>HUAWEI KIW-L22</item>
+            <item>HUAWEI KIW-L23</item>
+            <item>HUAWEI KIW-L24</item>
+            <item>HUAWEI KIW-CL00</item>
+            <item>HUAWEI KIW-TL00</item>
+            <item>HUAWEI -L21</item>
+            <item>HUAWEI KII-L22</item>
+            <item>HUAWEI KII-L23</item>
+            <item>HUAWEI KII-L24</item>
+        </models>
+    </device>
+
+    <device name="Huawei_GX8">
+        <models >
+            <item>HUAWEI RIO-L01</item>
+            <item>HUAWEI RIO-L02</item>
+            <item>HUAWEI RIO-L03</item>
+            <item>HUAWEI RIO-L04</item>
+            <item>RIO-L01</item>
+            <item>RIO-L02</item>
+            <item>RIO-L03</item>
+            <item>RIO-L04</item>
+        </models>
+
+    </device>
+
+    <device name="Philips_W8555">
+        <models>
+            <item>Philips W8555</item>
+        </models>
+    </device>
+
+    <device name="Nexus4">
+        <models>
+            <item>Nexus 4</item>
+        </models>
+    </device>
+
+    <device name="Nexus6">
+        <models>
+            <item>Nexus 6</item>
+        </models>
+    </device>
+
+    <device name="Samsung_S6_edge_plus">
+        <models>
+            <item>SM-G9287</item>
+            <item>SM-G9287C</item>
+            <item>SM-G928C</item>
+            <item>SM-G928F</item>
+            <item>SM-G928G</item>
+            <item>SM-G928I</item>
+            <item>SM-G928X</item>
+            <item>SAMSUNG-SM-G928A</item>
+            <item>SM-G928W8</item>
+            <item>SM-G9280</item>
+            <item>SM-G928K</item>
+            <item>SM-G928N0</item>
+            <item>SM-G928L</item>
+            <item>SM-G928S</item>
+            <item>SM-G928P</item>
+            <item>SM-G928T</item>
+            <item>SM-G928V</item>
+        </models>
+        <camera2><camera2>
+            <maxexposuretime>10000000</maxexposuretime>
+        </camera2></camera2>
+    </device>
+
+    <device name="Samsung_S6_edge">
+        <models>
+            <item>SM-G925F</item>
+        </models>
+    </device>
+
+    <device name="Zoppo_8speed">
+        <models>
+            <item>ZP955</item>
+        </models>
+
+    </device>
+
+    <device name="VERNEE_APOLLO_Lite">
+        <models>
+            <item>Apollo Lite</item>
+        </models>
+
+    </device>
+
+    <device name="Huawei_P9">
+        <models>
+            <item>EVA-L09</item>
+        </models>
+        <camera2>
+            <maxexposuretime>32000000</maxexposuretime>
+            <minexposuretime>10</minexposuretime>
+            <maxiso>52000</maxiso>
+        </camera2>
+    </device>
+
+    <device name="Sony_XZ2_compact">
+        <models>
+            <item>H8314</item>
+        </models>
+        <camera2>
+            <maxiso>51200</maxiso>
+        </camera2>
+    </device>
+
+    <device name="Sony_XperiaZ3">
+        <framework>SonyCameraExtension</framework>
+        <models>
+            <item>D6603</item>
+        </models>
+        <camera1>
+            <exposuretime>
+                <values>shutter_sony_xperiaZ3</values>
+                <key>sony-shutter-speed</key>
+                <type>7</type>
+            </exposuretime>
+            <manualiso supported="true">
+                <values>iso_sony_xperiaZ3</values>
+                <key>sony-iso</key>
+                <type>1</type>
+            </manualiso>
+        </camera1>
+    </device>
+
+    <device name ="LeTv_x900+">
+        <models>
+            <item>X900+</item>
+        </models>
+        <filesize size= "26775552">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>5312</width>
+            <height>3984</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>Nexus6</matrixset>
+        </filesize>
+    </device>
+    <device name ="OnePlus5">
+        <models>
+            <item>ONEPLUS A5000</item>
+        </models>
+        <filesize size= "20500480">
+            <blacklvl>64</blacklvl>
+            <whitelvl>1023</whitelvl>
+            <width>4656</width>
+            <height>3496</height>
+            <rawtype>0</rawtype>
+            <colorpattern>rggb</colorpattern>
+            <rowsize>0</rowsize>
+            <matrixset>OnePlus5</matrixset>
+        </filesize>
+    </device>
+
+</devices>
