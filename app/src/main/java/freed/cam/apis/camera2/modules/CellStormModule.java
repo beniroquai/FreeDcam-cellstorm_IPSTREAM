@@ -124,29 +124,17 @@ public class CellStormModule extends PictureModuleApi2 {
         currentCaptureHolder.setToneMapProfile(((ToneMapChooser)cameraUiWrapper.getParameterHandler().get(SettingKeys.TONEMAP_SET)).getToneMap());
         currentCaptureHolder.setSupport12bitRaw(SettingsManager.get(SettingKeys.support12bitRaw).get());
         currentCaptureHolder.setOutputStream(myOutputStream);
-        Log.d(TAG, "captureStillPicture ImgCount:"+ BurstCounter.getImageCaptured() +  " ImageCaptureHolder Path:" + currentCaptureHolder.getFilepath());
 
-        if (cameraUiWrapper.getParameterHandler().get(SettingKeys.LOCATION_MODE).GetStringValue().equals(SettingsManager.getInstance().getResString(R.string.on_)))
-        {
-            currentCaptureHolder.setLocation(cameraUiWrapper.getActivityInterface().getLocationManager().getCurrentLocation());
-            //cameraUiWrapper.captureSessionHandler.SetParameter(CaptureRequest.JPEG_GPS_LOCATION,cameraUiWrapper.getActivityInterface().getLocationManager().getCurrentLocation());
-        }
+        Log.d(TAG, "captureStillPicture ImgCount:"+ BurstCounter.getImageCaptured() +  " ImageCaptureHolder Path:" + currentCaptureHolder.getFilepath());
 
         String cmat = SettingsManager.get(SettingKeys.MATRIX_SET).get();
         if (cmat != null && !TextUtils.isEmpty(cmat) &&!cmat.equals("off")) {
             currentCaptureHolder.setCustomMatrix(SettingsManager.getInstance().getMatrixesMap().get(cmat));
         }
-        if (jpegReader != null)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                jpegReader.setOnImageAvailableListener(currentCaptureHolder,mBackgroundHandler);
-            }
-        if (rawReader != null)
-        {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                rawReader.setOnImageAvailableListener(currentCaptureHolder,mBackgroundHandler);
-            }
-        }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            rawReader.setOnImageAvailableListener(currentCaptureHolder,mBackgroundHandler);
+        }
 
         //cameraUiWrapper.captureSessionHandler.StopRepeatingCaptureSession();
         //cameraUiWrapper.captureSessionHandler.CancelRepeatingCaptureSession();
@@ -154,5 +142,6 @@ public class CellStormModule extends PictureModuleApi2 {
         changeCaptureState(ModuleHandlerAbstract.CaptureStates.image_capture_start);
         Log.d(TAG, "StartStillCapture");
         cameraUiWrapper.captureSessionHandler.StartImageCapture(currentCaptureHolder, mBackgroundHandler);
+        currentCaptureHolder.save();
     }
 }

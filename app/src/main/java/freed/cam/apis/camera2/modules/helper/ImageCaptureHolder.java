@@ -141,7 +141,9 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
         this.cropWidth = cropWidth;
     }
 
-    public void setOutputStream(OutputStream myOutputStream) {this.myOutputStream = myOutputStream; }
+    public void setOutputStream(OutputStream myOutputStream) {
+        this.myOutputStream = myOutputStream;
+    }
 
     public synchronized void SetCaptureResult(CaptureResult captureResult)
     {
@@ -239,7 +241,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
         }
     }
 
-    private void save()
+    public void save()
     {
         Log.d(TAG,"save " + images.size());
         for(int i=0; i< images.size();i++)
@@ -266,7 +268,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
     }
 
 
-    private void saveImage(Image image,String f) {
+    public void saveImage(Image image,String f) {
         File file = null;
         ImageTask task = null;
         switch (image.getFormat())
@@ -291,6 +293,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
                 }
                 else {
                     file = new File(f + ".dng");
+                    forceRawToDng=true;
                     if (forceRawToDng)
                         if (support12bitRaw)
                             task = process_rawWithDngConverter(image, DngProfile.Pure16bit_To_12bit, file);
@@ -337,7 +340,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
     }
 
     @NonNull
-    private ImageTask process_rawWithDngConverter(Image image, int rawFormat,File file) {
+    public ImageTask process_rawWithDngConverter(Image image, int rawFormat,File file) {
         ImageSaveTask saveTask = new ImageSaveTask(activityInterface,moduleInterface);
         saveTask.setOutputStream(myOutputStream);
         Log.d(TAG, "Create DNG VIA RAw2DNG");
