@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.Socket;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.WritableByteChannel;
 import java.util.Date;
 
 import freed.cam.ui.themesample.cameraui.HelpFragment;
@@ -274,7 +276,10 @@ public class RawToDng
             crop(byteBuffer,cropWidth,cropHeight);
         //WriteDNG(byteBuffer);
         try {
-            myOutputStream.write(byteBuffer.array());
+            WritableByteChannel channel = Channels.newChannel(myOutputStream);
+            channel.write(byteBuffer);
+
+//            myOutputStream.write(byteBuffer.array());
         } catch (IOException e) {
             e.printStackTrace();
         }

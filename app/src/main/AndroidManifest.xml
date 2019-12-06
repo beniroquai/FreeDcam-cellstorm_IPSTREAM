@@ -7,9 +7,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- used on huawei p9/10 and for new devices? -->
@@ -23,18 +22,13 @@
     <!-- used by sony xperia zX devices? -->
 
     <!-- used on oneplus5 -->
-    <uses-permission
-        android:name="com.oneplus.camera.CAMERA_SERVICE" />
-    <uses-permission
-        android:name="com.oneplus.camera.PICTURE_PROCESS_SERVICE" />
+    <uses-permission android:name="com.oneplus.camera.CAMERA_SERVICE" />
+    <uses-permission android:name="com.oneplus.camera.PICTURE_PROCESS_SERVICE" />
     <!-- used on oneplus5 -->
 
 
     <!-- only for system apps
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" /> -->
-
-
-
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>

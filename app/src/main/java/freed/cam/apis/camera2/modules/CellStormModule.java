@@ -111,6 +111,7 @@ public class CellStormModule extends PictureModuleApi2 {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e(TAG, String.valueOf(e));
         }
     }
 
