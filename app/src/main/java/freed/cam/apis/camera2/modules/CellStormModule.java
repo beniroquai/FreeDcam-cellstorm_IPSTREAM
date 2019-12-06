@@ -142,6 +142,6 @@ public class CellStormModule extends PictureModuleApi2 {
         changeCaptureState(ModuleHandlerAbstract.CaptureStates.image_capture_start);
         Log.d(TAG, "StartStillCapture");
         cameraUiWrapper.captureSessionHandler.StartImageCapture(currentCaptureHolder, mBackgroundHandler);
-        currentCaptureHolder.save();
+        //currentCaptureHolder.save();
     }
 }

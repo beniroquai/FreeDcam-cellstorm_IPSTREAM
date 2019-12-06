@@ -494,7 +494,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
             //dont catch errors on cc1 cc2 and neutral, these 3 are needed and that case should never happen
             color1 = getFloatMatrix(characteristics.get(CameraCharacteristics.SENSOR_COLOR_TRANSFORM1));
             color2 = getFloatMatrix(characteristics.get(CameraCharacteristics.SENSOR_COLOR_TRANSFORM2));
-            Rational[] n = captureResult.get(CaptureResult.SENSOR_NEUTRAL_COLOR_POINT);
+            Rational[] n = captureResult.get(CaptureResult.SENSOR_NEUTRAL_COLOR_POINT); // TODO: capture Result is NULL! WHY?
             neutral[0] = n[0].floatValue();
             neutral[1] = n[1].floatValue();
             neutral[2] = n[2].floatValue();
