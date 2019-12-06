@@ -43,8 +43,8 @@ public class CellStormModule extends PictureModuleApi2 {
     private boolean continueCapture = false;
     private final int cropSize = 200;
 
-    String my_server_ip = "192.168.43.86";
-    int my_portnumber = 5000;
+    String my_server_ip = "192.168.2.100";
+    int my_portnumber = 1234;
     Socket mysocket;
     OutputStream myOutputStream;
     PrintWriter myprintwriter;

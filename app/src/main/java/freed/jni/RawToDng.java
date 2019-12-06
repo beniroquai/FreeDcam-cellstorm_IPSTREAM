@@ -259,18 +259,6 @@ public class RawToDng
         if (profile == null)
             return;
         SetModelAndMake(Build.MANUFACTURER);
-        if (profile.toneMapProfile != null)
-        {
-            if (profile.toneMapProfile.getToneCurve() != null)
-                SetToneCurve(profile.toneMapProfile.getToneCurve(),byteBuffer);
-            if (profile.toneMapProfile.getHueSatMapData1() != null)
-                SetHueSatMapData1(profile.toneMapProfile.getHueSatMapData1(),byteBuffer);
-            //SetHueSatMapData2(profile.toneMapProfile.getHueSatMapData2());
-            if (profile.toneMapProfile.getHueSatMapDims() != null)
-                SetHueSatMapDims(profile.toneMapProfile.getHueSatMapDims(),byteBuffer);
-            if (profile.toneMapProfile.getBaselineExposure() != null)
-                SetBaselineExposure(profile.toneMapProfile.getBaselineExposure(),byteBuffer);
-        }
         SetBayerInfo(profile.matrixes.getByteBuffer(),profile.getByteBuffer(),byteBuffer);
         if (cropHeight >0 && cropWidth >0)
             crop(byteBuffer,cropWidth,cropHeight);
@@ -278,6 +266,7 @@ public class RawToDng
         try {
             WritableByteChannel channel = Channels.newChannel(myOutputStream);
             channel.write(byteBuffer);
+            channel.close();
 
 //            myOutputStream.write(byteBuffer.array());
         } catch (IOException e) {
