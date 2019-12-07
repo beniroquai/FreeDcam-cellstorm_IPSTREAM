@@ -21,6 +21,7 @@ import freed.cam.apis.basecamera.CameraWrapperInterface;
 import freed.cam.apis.basecamera.modules.ModuleHandlerAbstract;
 import freed.cam.apis.basecamera.parameters.modes.ToneMapChooser;
 import freed.cam.apis.camera2.modules.helper.ImageCaptureHolder;
+import freed.cam.apis.camera2.modules.helper.StreamAbleCaptureHolder;
 import freed.settings.SettingKeys;
 import freed.settings.SettingsManager;
 import freed.utils.Log;
@@ -46,7 +47,6 @@ public class CellStormModule extends PictureModuleApi2 {
     String my_server_ip = "192.168.2.100";
     int my_portnumber = 1234;
     Socket mysocket;
-    OutputStream myOutputStream;
     PrintWriter myprintwriter;
 
     public CellStormModule(CameraWrapperInterface cameraUiWrapper, Handler mBackgroundHandler, Handler mainHandler) {
@@ -106,7 +106,6 @@ public class CellStormModule extends PictureModuleApi2 {
             StrictMode.setThreadPolicy(policy);
             //your codes here
             mysocket = new Socket(my_server_ip, my_portnumber);
-            myOutputStream= mysocket.getOutputStream();
 
 
         } catch (IOException e) {
@@ -119,12 +118,12 @@ public class CellStormModule extends PictureModuleApi2 {
     public void captureStillPicture() {
 
         Log.d(TAG,"########### captureStillPicture ###########");
-        currentCaptureHolder = new ImageCaptureHolder(cameraHolder.characteristics, captureDng, captureJpeg, cameraUiWrapper.getActivityInterface(),this,this, this);
+        currentCaptureHolder = new StreamAbleCaptureHolder(cameraHolder.characteristics, captureDng, captureJpeg, cameraUiWrapper.getActivityInterface(),this,this, this,mysocket);
         currentCaptureHolder.setFilePath(getFileString(), SettingsManager.getInstance().GetWriteExternal());
         currentCaptureHolder.setForceRawToDng(SettingsManager.get(SettingKeys.forceRawToDng).get());
         currentCaptureHolder.setToneMapProfile(((ToneMapChooser)cameraUiWrapper.getParameterHandler().get(SettingKeys.TONEMAP_SET)).getToneMap());
         currentCaptureHolder.setSupport12bitRaw(SettingsManager.get(SettingKeys.support12bitRaw).get());
-        currentCaptureHolder.setOutputStream(myOutputStream);
+        //currentCaptureHolder.setOutputStream(myOutputStream);
 
         Log.d(TAG, "captureStillPicture ImgCount:"+ BurstCounter.getImageCaptured() +  " ImageCaptureHolder Path:" + currentCaptureHolder.getFilepath());
 
