@@ -42,10 +42,10 @@ public class CellStormModule extends PictureModuleApi2 {
     private final String TAG = CellStormModule.class.getSimpleName();
 
     private boolean continueCapture = false;
-    private final int cropSize = 200;
+    private final int cropSize = 100;
 
-    String my_server_ip = "192.168.2.100";
-    int my_portnumber = 1234;
+    String my_server_ip = "172.26.19.190";// "192.168.2.100";//"172.26.19.190";//"192.168.43.86"; //
+    int my_portnumber = 4444;
     Socket mysocket;
     PrintWriter myprintwriter;
 
@@ -104,7 +104,7 @@ public class CellStormModule extends PictureModuleApi2 {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            //your codes here
+
             mysocket = new Socket(my_server_ip, my_portnumber);
 
 
@@ -143,5 +143,6 @@ public class CellStormModule extends PictureModuleApi2 {
         Log.d(TAG, "StartStillCapture");
         cameraUiWrapper.captureSessionHandler.StartImageCapture(currentCaptureHolder, mBackgroundHandler);
         //currentCaptureHolder.save();
+        changeCaptureState(ModuleHandlerAbstract.CaptureStates.image_capture_stop);
     }
 }
