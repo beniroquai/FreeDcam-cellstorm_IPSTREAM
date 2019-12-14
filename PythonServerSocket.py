@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 np.set_printoptions(threshold=sys.maxsize)
 
 def recvall(sock):
-    BUFF_SIZE = 4096 # 4 KiB
+    BUFF_SIZE = 2*4096 # 4 KiB
     data = b''
     while True:
         part = sock.recv(BUFF_SIZE)
@@ -31,12 +31,12 @@ def bytes2image(mybytes, startpos = 0, mycropsize=100):
     dt = np.dtype(np.uint16)
     dt = dt.newbyteorder('<')
     myimage_array = np.frombuffer(oneimage , dtype=dt)
-    myimage = np.reshape(myimage_array, (100,100))
+    myimage = np.reshape(myimage_array, (mycropsize,mycropsize))
     return myimage
 
 HOST = ''	# Symbolic name, meaning all available interfaces
 PORT = 4444	# Arbitrary non-privileged port
-BUFSIZE = 4096 
+BUFFSIZE = 4096 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -59,8 +59,11 @@ mydata=[]
 #open and read the file after the appending:
 f = open("test.txt", "a")
 
-mydata = bytes(0)
+#%%
+mydata = b''
 myimages = []
+mycropsize = 200
+dataacquisition = False
 while True:
     #wait to accept a connection - blocking call
     conn, addr = server.accept()
@@ -68,21 +71,27 @@ while True:
     while 1:
         
         #myfile = open('testfile.raw', 'w')
-        mymessage = recvall(conn)
-        mydata += mymessage# print(mymessage)
-        #mydata.append(mymessage)
-        #print(mydata)
-        mycropsize = 100
-        if len(mydata)==(mycropsize**2*2):
-            mydata = bytes(0)
-            myimage = bytes2image(mymessage, mycropsize)
-            myimages.append(myimage)
-            try:
-                plt.imshow(myimage), plt.colorbar(), plt.show()
-            except:
-                print('Something went wrong')
-                
+        #mymessage = recvall(conn)
+        mymessage = conn.recv(BUFF_SIZE)
+        #print(mymessage)
 
+#        if dataacquisition==True:
+        mydata += mymessage# print(mymessage)
+#            
+        print(len(mymessage))
+#        if len(mymessage)==2:
+#            print(mymessage)
+#        
+#        if len(mymessage)==2 and (int(mymessage)==-1 or dataacquisition==True):
+#            dataacquisition = True
+#        
+#        if len(mymessage)==2 and int(mymessage)==-2:
+#            dataacquisition = False
+#            myimage = bytes2image(mydata, mycropsize)
+#            myimages.append(myimage)
+#            plt.imshow(myimage), plt.colorbar(), plt.show()
+#            mydata = bytes(0)
+#
 
 
 

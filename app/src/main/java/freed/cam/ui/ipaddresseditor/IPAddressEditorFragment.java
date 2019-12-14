@@ -57,7 +57,7 @@ public class IPAddressEditorFragment extends Fragment {
     private EditText editText_ipaddress_port;
     private VideoMediaProfile currentProfile;
 
-    private String mIPAddress = "192.168.43.83";
+    private String mIPAddress = "192.168.43.86";//"192.168.43.83";
     private int mPort = 1234;
 
     private HashMap<String, VideoMediaProfile> videoMediaProfiles;
