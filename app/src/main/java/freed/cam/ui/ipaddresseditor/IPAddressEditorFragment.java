@@ -83,6 +83,7 @@ public class IPAddressEditorFragment extends Fragment {
     private void setIPAddressPort(String myIPAddress, int myPort) {
         mIPAddress = myIPAddress;
         mPort = myPort;
+        SettingsManager.get(SettingKeys.IP_PORT).set(myIPAddress+":" + myPort);
 
     }
 

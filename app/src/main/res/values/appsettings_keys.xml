@@ -124,5 +124,6 @@
     <string name="aps_bayformat" translatable="false">bayerformat</string>
     <string name="aps_touchtocapture" translatable="false">touchtocapture</string>
     <string name="aps_focuspeakcolor" translatable="false">focuspeakcolor</string>
+    <string name="aps_ip_port" translatable="false">ip_port</string>
 
 </resources>
