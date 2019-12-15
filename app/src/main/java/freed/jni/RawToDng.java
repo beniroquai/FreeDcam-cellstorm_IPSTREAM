@@ -266,6 +266,7 @@ public class RawToDng
         try {
             WritableByteChannel channel = Channels.newChannel(myOutputStream);
             channel.write(byteBuffer);
+            Log.d(TAG, "MyBytes:"+String.valueOf(byteBuffer));
             channel.close();
 
 //            myOutputStream.write(byteBuffer.array());

@@ -41,9 +41,9 @@ public class StreamAbleCaptureHolder extends ImageCaptureHolder {
         buffer.get(bytes);
         try {
             //sending plain bayer bytearray with simple start end of file
-            bufferedOutputStream.write(Byte.parseByte("start"));
+            bufferedOutputStream.write("-1".getBytes());
             bufferedOutputStream.write(bytes);
-            bufferedOutputStream.write(Byte.parseByte("end"));
+            bufferedOutputStream.write("-2".getBytes());
             bufferedOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();

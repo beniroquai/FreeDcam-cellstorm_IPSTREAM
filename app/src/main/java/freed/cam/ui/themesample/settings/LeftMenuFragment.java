@@ -45,6 +45,7 @@ import freed.cam.ui.themesample.settings.childs.SettingsChildFeatureDetect;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenu;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuForceRawToDng;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuGPS;
+import freed.cam.ui.themesample.settings.childs.SettingsChildMenuIPAddressProfile;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuInterval;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuIntervalDuration;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuOrientationHack;
@@ -53,6 +54,7 @@ import freed.cam.ui.themesample.settings.childs.SettingsChildMenuSaveCamParams;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuTimeLapseFrames;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuVideoHDR;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenuVideoProfile;
+import freed.cam.ui.themesample.settings.childs.SettingsChildMenu_IPAddressEditor;
 import freed.cam.ui.themesample.settings.childs.SettingsChildMenu_VideoProfEditor;
 import freed.cam.ui.themesample.settings.childs.SettingsChild_BooleanSetting;
 import freed.settings.SettingKeys;
@@ -111,6 +113,24 @@ public class LeftMenuFragment extends AbstractFragment  implements SettingsChild
                 SettingsChildMenu_VideoProfEditor videoProfileEditor = new SettingsChildMenu_VideoProfEditor(getContext(), R.string.setting_videoprofileeditor_header, R.string.setting_videoprofileeditor_description);
                 videoGroup.addView(videoProfileEditor);
             }
+
+
+            // SET IP ADDRESS + PORT
+            if (params.get(SettingKeys.VideoProfiles) != null) {
+                SettingsChildMenuIPAddressProfile IPAddress = new SettingsChildMenuIPAddressProfile(getContext(),
+                        params.get(SettingKeys.VideoProfiles), R.string.setting_videoprofile_header, R.string.setting_videoprofile_description);
+                IPAddress.SetUiItemClickListner(this);
+                videoGroup.addView(IPAddress);
+
+                SettingsChildMenuTimeLapseFrames timeLapseFrames = new SettingsChildMenuTimeLapseFrames(getContext());
+                timeLapseFrames.setVisibility(View.VISIBLE);
+                videoGroup.addView(timeLapseFrames);
+
+
+                SettingsChildMenu_IPAddressEditor IPAddressEditor = new SettingsChildMenu_IPAddressEditor(getContext(), R.string.setting_videoprofileeditor_header, R.string.setting_videoprofileeditor_description);
+                videoGroup.addView(IPAddressEditor);
+            }
+
             if (params.get(SettingKeys.VideoHDR) != null) {
                 SettingsChildMenuVideoHDR videoHDR = new SettingsChildMenuVideoHDR(getContext(), params.get(SettingKeys.VideoHDR), R.string.setting_videohdr_header, R.string.setting_videohdr_description);
                 videoHDR.SetCameraInterface(cameraUiWrapper);
