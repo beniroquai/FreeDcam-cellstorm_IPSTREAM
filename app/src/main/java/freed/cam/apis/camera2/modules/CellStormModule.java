@@ -60,8 +60,13 @@ public class CellStormModule extends PictureModuleApi2 {
     @Override
     public void InitModule() {
         super.InitModule();
-        if (cameraUiWrapper.getActivityInterface().getPermissionManager().hasWifiPermission(null))
-            connectServer();
+        if (cameraUiWrapper.getActivityInterface().getPermissionManager().hasWifiPermission(null)) {
+            try {
+                connectServer();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         // connect to server for streaming the bytes
     }
 
@@ -99,7 +104,13 @@ public class CellStormModule extends PictureModuleApi2 {
     }
 
 
-    public void connectServer() {
+    public void connectServer() throws Exception {
+        String ip_port = SettingsManager.get(SettingKeys.IP_PORT).get();
+        String splitIP_Port[] = ip_port.split(":");
+        if (splitIP_Port == null || splitIP_Port.length !=2)
+            throw  new Exception("Ip or port is empty");
+        my_server_ip = splitIP_Port[0];
+        my_portnumber = Integer.parseInt(splitIP_Port[1]);
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
