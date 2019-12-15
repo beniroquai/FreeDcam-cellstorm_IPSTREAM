@@ -114,23 +114,6 @@ public class LeftMenuFragment extends AbstractFragment  implements SettingsChild
                 videoGroup.addView(videoProfileEditor);
             }
 
-
-            // SET IP ADDRESS + PORT
-            if (params.get(SettingKeys.VideoProfiles) != null) {
-                SettingsChildMenuIPAddressProfile IPAddress = new SettingsChildMenuIPAddressProfile(getContext(),
-                        params.get(SettingKeys.VideoProfiles), R.string.setting_videoprofile_header, R.string.setting_videoprofile_description);
-                IPAddress.SetUiItemClickListner(this);
-                videoGroup.addView(IPAddress);
-
-                SettingsChildMenuTimeLapseFrames timeLapseFrames = new SettingsChildMenuTimeLapseFrames(getContext());
-                timeLapseFrames.setVisibility(View.VISIBLE);
-                videoGroup.addView(timeLapseFrames);
-
-
-                SettingsChildMenu_IPAddressEditor IPAddressEditor = new SettingsChildMenu_IPAddressEditor(getContext(), R.string.setting_videoprofileeditor_header, R.string.setting_videoprofileeditor_description);
-                videoGroup.addView(IPAddressEditor);
-            }
-
             if (params.get(SettingKeys.VideoHDR) != null) {
                 SettingsChildMenuVideoHDR videoHDR = new SettingsChildMenuVideoHDR(getContext(), params.get(SettingKeys.VideoHDR), R.string.setting_videohdr_header, R.string.setting_videohdr_description);
                 videoHDR.SetCameraInterface(cameraUiWrapper);
@@ -153,6 +136,24 @@ public class LeftMenuFragment extends AbstractFragment  implements SettingsChild
 
             if (videoGroup.childSize() > 0)
                 settingsChildHolder.addView(videoGroup);
+
+
+
+            // SET IP ADDRESS + PORT
+            GroupChild ipportGroup = new GroupChild(getContext(), getString(R.string.setting_ipport_group_header));
+
+            if (true){//params.get(SettingKeys.IP_PORT) != null) {
+                SettingsChildMenuIPAddressProfile IPAddress = new SettingsChildMenuIPAddressProfile(getContext(),
+                        params.get(SettingKeys.VideoProfiles), R.string.setting_ipportprofile_header, R.string.setting_ipportprofile_description);
+                IPAddress.SetUiItemClickListner(this);
+                ipportGroup.addView(IPAddress);
+
+                SettingsChildMenu_IPAddressEditor IPAddressEditor = new SettingsChildMenu_IPAddressEditor(getContext(), R.string.setting_ipportprofile_header, R.string.setting_ipportprofile_description);
+                ipportGroup.addView(IPAddressEditor);
+            }
+
+            if (ipportGroup.childSize() > 0)
+                settingsChildHolder.addView(ipportGroup);
 
         /*
             PictureGroup

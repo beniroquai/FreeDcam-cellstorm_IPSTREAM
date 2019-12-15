@@ -44,8 +44,7 @@ import java.util.HashMap;
 
 import freed.settings.SettingKeys;
 import freed.settings.SettingsManager;
-import freed.utils.VideoMediaProfile;
-import freed.utils.VideoMediaProfile.VideoMode;
+import freed.settings.mode.SettingMode;
 
 /**
  * Created by troop on 15.02.2016.
@@ -55,12 +54,10 @@ public class IPAddressEditorFragment extends Fragment {
 
     private EditText editText_ipaddress;
     private EditText editText_ipaddress_port;
-    private VideoMediaProfile currentProfile;
 
     private String mIPAddress = "192.168.43.86";//"192.168.43.83";
     private int mPort = 1234;
 
-    private HashMap<String, VideoMediaProfile> videoMediaProfiles;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -71,20 +68,40 @@ public class IPAddressEditorFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        editText_ipaddress = view.findViewById(id.editText_ProfileName);
-        editText_ipaddress_port = view.findViewById(id.editText_Profilewidth);
+        editText_ipaddress = view.findViewById(id.editText_IPAddress);
+        editText_ipaddress_port = view.findViewById(id.editText_IPAddress_port);
 
         Button button_save = view.findViewById(id.button_Save_profile);
         button_save.setOnClickListener(onSavebuttonClick);
 
+        // get previously saved IPPort settings and set it to the GUI
+        setIPAddressPort_GUI();
     }
 
+    private void setIPAddressPort_GUI() {
+        String ip_port = SettingsManager.get(SettingKeys.IP_PORT).get();
+        String splitIP_Port[] = ip_port.split(":");
+
+        try {
+            mIPAddress = splitIP_Port[0];
+            mPort = Integer.parseInt(splitIP_Port[1]);
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            mIPAddress = "192.168.2.100";
+            mPort = 5555;
+            Toast.makeText(getContext(),"Swithcing back to previous settings", Toast.LENGTH_SHORT).show();
+        }
+
+        editText_ipaddress.setText(mIPAddress);
+        editText_ipaddress_port.setText(String.valueOf(mPort));
+
+        SettingsManager.get(SettingKeys.IP_PORT).set(mIPAddress+":" + mPort);
+    }
 
     private void setIPAddressPort(String myIPAddress, int myPort) {
         mIPAddress = myIPAddress;
         mPort = myPort;
         SettingsManager.get(SettingKeys.IP_PORT).set(myIPAddress+":" + myPort);
-
     }
 
     private final OnClickListener onSavebuttonClick = new OnClickListener() {
