@@ -4,6 +4,7 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.media.Image;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -76,13 +77,26 @@ public class StreamAbleCaptureHolder extends ImageCaptureHolder {
         int bytepos = 0;
         ByteBuffer buffer = image.getPlanes()[0].getBuffer();
         int rowsize = buf_width*2;
-        for (int y = y_crop_pos; y <  y_crop_pos +buf_height*2;y++)
+        for (int y = y_crop_pos; y < y_crop_pos+buf_height; y++)
         {
-            for (int x = x_crop_pos; x < x_crop_pos +buf_width*2;x++)
+            for (int x = x_crop_pos; x < x_crop_pos+buf_width; x++)
             {
-                bytes[bytepos++] = buffer.get(y*rowsize +x);
+                try {
+                    // low-byte
+                    bytes[bytepos] = buffer.get((y * rowsize + x)*2);
+                    // high-byte
+                    bytes[bytepos+1] = buffer.get((y * rowsize + x)*2 + 1);
+                    bytepos = bytepos+2;
+                }
+                catch(ArrayIndexOutOfBoundsException e){
+                    Log.e("BUFFER ERROR", String.valueOf(x)+'/'+String.valueOf(y)+'/'+String.valueOf(bytepos));
+                }
             }
         }
+
+
+
+
         return bytes;
     }
 }

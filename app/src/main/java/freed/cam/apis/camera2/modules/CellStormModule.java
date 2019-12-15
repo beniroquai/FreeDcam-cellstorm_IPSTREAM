@@ -77,10 +77,10 @@ public class CellStormModule extends PictureModuleApi2 {
         catch(NumberFormatException e){
             cropSize = cropSize;
         }
+
         Log.i(TAG, "Values set:" + my_server_ip + ":" + String.valueOf(my_portnumber) + "- cropsize: " + String.valueOf(cropSize));
 
     }
-
 
 
     @Override
@@ -142,6 +142,7 @@ public class CellStormModule extends PictureModuleApi2 {
 
         Log.d(TAG,"########### captureStillPicture ###########");
         currentCaptureHolder = new StreamAbleCaptureHolder(cameraHolder.characteristics, captureDng, captureJpeg, cameraUiWrapper.getActivityInterface(),this,this, this,mysocket);
+        currentCaptureHolder.setCropSize(cropSize,cropSize);
         currentCaptureHolder.setFilePath(getFileString(), SettingsManager.getInstance().GetWriteExternal());
         currentCaptureHolder.setForceRawToDng(SettingsManager.get(SettingKeys.forceRawToDng).get());
         currentCaptureHolder.setToneMapProfile(((ToneMapChooser)cameraUiWrapper.getParameterHandler().get(SettingKeys.TONEMAP_SET)).getToneMap());
