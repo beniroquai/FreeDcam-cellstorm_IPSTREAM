@@ -146,7 +146,7 @@ public class CellStormModule extends PictureModuleApi2 {
         currentCaptureHolder.setForceRawToDng(SettingsManager.get(SettingKeys.forceRawToDng).get());
         currentCaptureHolder.setToneMapProfile(((ToneMapChooser)cameraUiWrapper.getParameterHandler().get(SettingKeys.TONEMAP_SET)).getToneMap());
         currentCaptureHolder.setSupport12bitRaw(SettingsManager.get(SettingKeys.support12bitRaw).get());
-        currentCaptureHolder.setCropSize(cropSize, cropSize);
+        //currentCaptureHolder.setCropSize(cropSize, cropSize);
 
         //currentCaptureHolder.setOutputStream(myOutputStream);
 

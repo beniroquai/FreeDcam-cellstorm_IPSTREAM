@@ -33,7 +33,7 @@ import freed.viewer.holder.FileHolder;
 /**
  * Created by troop on 15.02.2016.
  */
-public class IPAddressEditorActivity extends ActivityAbstract
+public class IPAddressEditorActivity extends FragmentActivity
 {
     private final String TAG = IPAddressEditorActivity.class.getSimpleName();
 
@@ -52,18 +52,4 @@ public class IPAddressEditorActivity extends ActivityAbstract
         }
     }
 
-    @Override
-    public LocationManager getLocationManager() {
-        return null;
-    }
-
-    @Override
-    public void WorkHasFinished(FileHolder fileHolder) {
-
-    }
-
-    @Override
-    public void WorkHasFinished(FileHolder[] fileHolder) {
-
-    }
 }

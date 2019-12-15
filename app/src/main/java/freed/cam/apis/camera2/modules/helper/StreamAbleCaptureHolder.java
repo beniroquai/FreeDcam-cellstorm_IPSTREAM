@@ -23,6 +23,15 @@ public class StreamAbleCaptureHolder extends ImageCaptureHolder {
     //used to send data to the target
     private BufferedOutputStream bufferedOutputStream;
 
+    // Settings for cropping the image
+    private int mCropsize = 100;
+    private int x_crop_pos = 0;
+    private int y_crop_pos = 0;
+
+    public void setCropsize(int myCropsize){
+        this.mCropsize = myCropsize;
+    }
+
     public StreamAbleCaptureHolder(CameraCharacteristics characteristicss, boolean isRawCapture, boolean isJpgCapture, ActivityInterface activitiy, ModuleInterface imageSaver, WorkFinishEvents finish, RdyToSaveImg rdyToSaveImg, Socket socket) {
         super(characteristicss, isRawCapture, isJpgCapture, activitiy, imageSaver, finish, rdyToSaveImg);
         this.socket =socket;
@@ -36,9 +45,11 @@ public class StreamAbleCaptureHolder extends ImageCaptureHolder {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void saveImage(Image image, String f) {
-        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-        byte[] bytes = new byte[buffer.remaining()];
-        buffer.get(bytes);
+        //ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+        //byte[] bytes = new byte[buffer.remaining()];
+        //buffer.get(bytes);
+        byte[] bytes = cropByteArray(x_crop_pos, y_crop_pos, mCropsize, mCropsize, image);
+
         try {
             //sending plain bayer bytearray with simple start end of file
             bufferedOutputStream.write("START".getBytes());
