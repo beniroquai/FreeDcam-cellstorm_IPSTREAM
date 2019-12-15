@@ -25,12 +25,15 @@ import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
+import freed.ActivityAbstract;
 import freed.cam.ui.videoprofileeditor.VideoProfileEditorFragment;
+import freed.utils.LocationManager;
+import freed.viewer.holder.FileHolder;
 
 /**
  * Created by troop on 15.02.2016.
  */
-public class IPAddressEditorActivity extends FragmentActivity
+public class IPAddressEditorActivity extends ActivityAbstract
 {
     private final String TAG = IPAddressEditorActivity.class.getSimpleName();
 
@@ -47,5 +50,20 @@ public class IPAddressEditorActivity extends FragmentActivity
             ft.replace(id.content, new IPAddressEditorFragment(), TAG);
             ft.commit();
         }
+    }
+
+    @Override
+    public LocationManager getLocationManager() {
+        return null;
+    }
+
+    @Override
+    public void WorkHasFinished(FileHolder fileHolder) {
+
+    }
+
+    @Override
+    public void WorkHasFinished(FileHolder[] fileHolder) {
+
     }
 }
