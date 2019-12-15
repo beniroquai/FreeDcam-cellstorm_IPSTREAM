@@ -54,9 +54,11 @@ public class IPAddressEditorFragment extends Fragment {
 
     private EditText editText_ipaddress;
     private EditText editText_ipaddress_port;
+    private EditText editText_cropsize;
 
     private String mIPAddress = "192.168.43.86";//"192.168.43.83";
     private int mPort = 1234;
+    private int mCropsize = 100;
 
     @Nullable
     @Override
@@ -70,38 +72,47 @@ public class IPAddressEditorFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         editText_ipaddress = view.findViewById(id.editText_IPAddress);
         editText_ipaddress_port = view.findViewById(id.editText_IPAddress_port);
+        editText_cropsize = view.findViewById(id.editText_Cropsize);
 
         Button button_save = view.findViewById(id.button_Save_profile);
         button_save.setOnClickListener(onSavebuttonClick);
 
         // get previously saved IPPort settings and set it to the GUI
-        setIPAddressPort_GUI();
+        setGUI();
     }
 
-    private void setIPAddressPort_GUI() {
+    private void setGUI() {
         String ip_port = SettingsManager.get(SettingKeys.IP_PORT).get();
         String splitIP_Port[] = ip_port.split(":");
+        String cropsize = SettingsManager.get(SettingKeys.mCropsize).get();
 
         try {
             mIPAddress = splitIP_Port[0];
             mPort = Integer.parseInt(splitIP_Port[1]);
+            mCropsize = Integer.parseInt(cropsize);
         }
-        catch(ArrayIndexOutOfBoundsException e){
+        catch(Exception e){
             mIPAddress = "192.168.2.100";
             mPort = 5555;
-            Toast.makeText(getContext(),"Swithcing back to previous settings", Toast.LENGTH_SHORT).show();
+            mCropsize = 100;
+            Toast.makeText(getContext(),"Switching back to previous settings", Toast.LENGTH_SHORT).show();
         }
 
+        // Set the text/numbers
         editText_ipaddress.setText(mIPAddress);
         editText_ipaddress_port.setText(String.valueOf(mPort));
+        editText_cropsize.setText(String.valueOf(mCropsize));
 
         SettingsManager.get(SettingKeys.IP_PORT).set(mIPAddress+":" + mPort);
+        SettingsManager.get(SettingKeys.mCropsize).set(String.valueOf(mCropsize));
     }
 
-    private void setIPAddressPort(String myIPAddress, int myPort) {
+    private void setIPAddressPort(String myIPAddress, int myPort, int myCropsize) {
         mIPAddress = myIPAddress;
         mPort = myPort;
+        mCropsize = myCropsize;
         SettingsManager.get(SettingKeys.IP_PORT).set(myIPAddress+":" + myPort);
+        SettingsManager.get(SettingKeys.mCropsize).set(String.valueOf(mCropsize));
     }
 
     private final OnClickListener onSavebuttonClick = new OnClickListener() {
@@ -110,7 +121,8 @@ public class IPAddressEditorFragment extends Fragment {
         {
             mIPAddress = String.valueOf(editText_ipaddress.getText());
             mPort = Integer.parseInt(String.valueOf(editText_ipaddress_port.getText()));
-            setIPAddressPort(mIPAddress, mPort);
+            mCropsize = Integer.parseInt(String.valueOf(editText_cropsize.getText()));
+            setIPAddressPort(mIPAddress, mPort, mCropsize);
             Toast.makeText(getContext(),"IP Address Set", Toast.LENGTH_SHORT).show();
         }
     };

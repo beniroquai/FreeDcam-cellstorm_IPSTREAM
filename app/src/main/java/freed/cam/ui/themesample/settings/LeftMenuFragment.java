@@ -143,11 +143,6 @@ public class LeftMenuFragment extends AbstractFragment  implements SettingsChild
             GroupChild ipportGroup = new GroupChild(getContext(), getString(R.string.setting_ipport_group_header));
 
             if (true){//params.get(SettingKeys.IP_PORT) != null) {
-                SettingsChildMenuIPAddressProfile IPAddress = new SettingsChildMenuIPAddressProfile(getContext(),
-                        params.get(SettingKeys.VideoProfiles), R.string.setting_ipportprofile_header, R.string.setting_ipportprofile_description);
-                IPAddress.SetUiItemClickListner(this);
-                ipportGroup.addView(IPAddress);
-
                 SettingsChildMenu_IPAddressEditor IPAddressEditor = new SettingsChildMenu_IPAddressEditor(getContext(), R.string.setting_ipportprofile_header, R.string.setting_ipportprofile_description);
                 ipportGroup.addView(IPAddressEditor);
             }

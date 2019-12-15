@@ -42,7 +42,7 @@ public class CellStormModule extends PictureModuleApi2 {
     private final String TAG = CellStormModule.class.getSimpleName();
 
     private boolean continueCapture = false;
-    private final int cropSize = 300;
+    private int cropSize = 100;
 
     String my_server_ip ="192.168.2.100"; // "172.26.19.190"; //// "172.26.19.190";// "192.168.43.86";//"192.168.2.100";//"172.26.19.190";//"192.168.43.86"; //
     int my_portnumber = 4444;
@@ -62,12 +62,23 @@ public class CellStormModule extends PictureModuleApi2 {
         super.InitModule();
         if (cameraUiWrapper.getActivityInterface().getPermissionManager().hasWifiPermission(null)) {
             try {
+                // connect to server for streaming the bytes
                 connectServer();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        // connect to server for streaming the bytes
+
+        // Set cropsize derived from settingsmanager
+        String mCropsize = SettingsManager.get(SettingKeys.mCropsize).get();
+        try{
+            cropSize = Integer.parseInt(mCropsize);
+        }
+        catch(NumberFormatException e){
+            cropSize = cropSize;
+        }
+        Log.i(TAG, "Values set:" + my_server_ip + ":" + String.valueOf(my_portnumber) + "- cropsize: " + String.valueOf(cropSize));
+
     }
 
 

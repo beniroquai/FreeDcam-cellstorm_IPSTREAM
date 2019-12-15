@@ -147,7 +147,7 @@ public class SettingKeys{
 
 
     public final static Key<SettingMode> IP_PORT = new Key(SettingMode.class, R.string.aps_ip_port);
-
+    public final static Key<SettingMode> mCropsize = new Key(SettingMode.class, R.string.aps_cropsize);
 
 
     /**
