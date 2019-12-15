@@ -44,7 +44,7 @@ public class CellStormModule extends PictureModuleApi2 {
     private boolean continueCapture = false;
     private final int cropSize = 300;
 
-    String my_server_ip = "192.168.2.100";// "172.26.19.190";// "192.168.43.86";//"192.168.2.100";//"172.26.19.190";//"192.168.43.86"; //
+    String my_server_ip ="192.168.2.100"; // "172.26.19.190"; //// "172.26.19.190";// "192.168.43.86";//"192.168.2.100";//"172.26.19.190";//"192.168.43.86"; //
     int my_portnumber = 4444;
     Socket mysocket;
     PrintWriter myprintwriter;
@@ -124,6 +124,8 @@ public class CellStormModule extends PictureModuleApi2 {
         currentCaptureHolder.setForceRawToDng(SettingsManager.get(SettingKeys.forceRawToDng).get());
         currentCaptureHolder.setToneMapProfile(((ToneMapChooser)cameraUiWrapper.getParameterHandler().get(SettingKeys.TONEMAP_SET)).getToneMap());
         currentCaptureHolder.setSupport12bitRaw(SettingsManager.get(SettingKeys.support12bitRaw).get());
+        currentCaptureHolder.setCropSize(cropSize, cropSize);
+
         //currentCaptureHolder.setOutputStream(myOutputStream);
 
         Log.d(TAG, "captureStillPicture ImgCount:"+ BurstCounter.getImageCaptured() +  " ImageCaptureHolder Path:" + currentCaptureHolder.getFilepath());
@@ -144,7 +146,7 @@ public class CellStormModule extends PictureModuleApi2 {
         Log.d(TAG, "StartStillCapture");
         cameraUiWrapper.captureSessionHandler.StartImageCapture(currentCaptureHolder, mBackgroundHandler);
         //currentCaptureHolder.save();
-        changeCaptureState(ModuleHandlerAbstract.CaptureStates.image_capture_stop);
+        //changeCaptureState(ModuleHandlerAbstract.CaptureStates.image_capture_stop);
     }
 
 

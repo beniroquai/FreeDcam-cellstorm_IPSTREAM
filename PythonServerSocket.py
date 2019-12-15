@@ -15,16 +15,7 @@ import sys
 import matplotlib.pyplot as plt
 np.set_printoptions(threshold=sys.maxsize)
 
-def recvall(sock):
-    BUFF_SIZE = 2*4096 # 4 KiB
-    data = b''
-    while True:
-        part = sock.recv(BUFF_SIZE)
-        data += part
-        if len(part) < BUFF_SIZE:
-            # either 0 or end of data
-            break
-    return data
+
 
 def bytes2image(mybytes, startpos = 0, mycropsize=100):
     oneimage = mydata[startpos:startpos+mycropsize*mycropsize*2]
@@ -36,7 +27,7 @@ def bytes2image(mybytes, startpos = 0, mycropsize=100):
 
 HOST = ''	# Symbolic name, meaning all available interfaces
 PORT = 4444	# Arbitrary non-privileged port
-BUFFSIZE = 4096 
+
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -60,14 +51,23 @@ mydata=[]
 f = open("test.txt", "a")
 
 #%%
+BUFF_SIZE = 2**8
 mydata = b''
 myimages = []
-mycropsize = 200
+mycropsize = 300
 dataacquisition = False
+mystartflag = b'START'
+byendflag = b'END'
+imagebytesize = mycropsize**2*2
+myimage_iter=0
+
+import time 
+t1 = time.time()
 while True:
     #wait to accept a connection - blocking call
     conn, addr = server.accept()
     print('Connected with ' + addr[0] + ':' + str(addr[1]))    
+    #%
     while 1:
         
         #myfile = open('testfile.raw', 'w')
@@ -77,41 +77,43 @@ while True:
 
 #        if dataacquisition==True:
         mydata += mymessage# print(mymessage)
-#            
-        print(len(mymessage))
-#        if len(mymessage)==2:
-#            print(mymessage)
-#        
-#        if len(mymessage)==2 and (int(mymessage)==-1 or dataacquisition==True):
-#            dataacquisition = True
-#        
-#        if len(mymessage)==2 and int(mymessage)==-2:
-#            dataacquisition = False
-#            myimage = bytes2image(mydata, mycropsize)
-#            myimages.append(myimage)
-#            plt.imshow(myimage), plt.colorbar(), plt.show()
-#            mydata = bytes(0)
-#
+        
+        if mystartflag in mydata:
+            # get rid of the start-flag and set dataacquisition flat 
+            dataacquisition = True
+            mydata = mydata[len(b'-1'):-1]
+            print('Throw away the starting bit!')
+            
+        if byendflag in mydata:
+            # stop the acquisition
+            dataacquisition = False
+            break
+            print('STOP')
+                          
+
+        #%
+        if(len(mydata)>=(imagebytesize)):
+
+            # cast the image from bytes-stream to numpy array and store it
+            myimage = bytes2image(mydata, startpos = 0, mycropsize=mycropsize)
+            myimages.append(myimage)
+            #plt.imshow(myimage), plt.colorbar(), plt.show()
+            print(myimage_iter)
+            myimage_iter+=1
+            # throw away the first image and restart byte acquisition
+            mydata = mydata[imagebytesize:-1]
+
+            print('FPS: ' + str(1/(time.time()-t1)))
+            t1 = time.time()
 
 
 
-
-f.write(str(mydata)) 
-f.close()
-conn.close()
-f.write(str(np.array(mydata)))
-
-
-
-
-
-
-
-
-
+# visualize/process images afterwards 
+for i_image in range(len(myimages)):
+    plt.imshow(myimages[i_image]), plt.colorbar(), plt.show()
 
 print('client disconnected')
 
-
+conn.close()
 server.close()
 
