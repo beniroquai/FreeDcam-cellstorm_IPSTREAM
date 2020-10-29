@@ -76,7 +76,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
     private boolean isRawCapture = false;
     private boolean isJpgCapture = false;
     private boolean forceRawToDng = false;
-    private boolean support12bitRaw = false;
+    private boolean support12bitRaw = true;; //TODO: RIGHT?! false;
 
     private ActivityInterface activityInterface;
     private RdyToSaveImg rdyToSaveImg;
@@ -435,6 +435,7 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
             Log.WriteEx(e);
             black = 64;
         }
+        black = 0; //TODO: NO!!
         try {
             white = characteristics.get(CameraCharacteristics.SENSOR_INFO_WHITE_LEVEL);
         } catch (Exception e) {
@@ -496,8 +497,8 @@ public class ImageCaptureHolder extends CameraCaptureSession.CaptureCallback imp
             color2 = getFloatMatrix(characteristics.get(CameraCharacteristics.SENSOR_COLOR_TRANSFORM2));
             Rational[] n = captureResult.get(CaptureResult.SENSOR_NEUTRAL_COLOR_POINT); // TODO: capture Result is NULL! WHY?
             neutral[0] = n[0].floatValue();
-            neutral[1] = n[1].floatValue();
-            neutral[2] = n[2].floatValue();
+            neutral[1] = 1f;//n[1].floatValue();
+            neutral[2] = 1f;//n[2].floatValue();
             try {
                 forward2  = getFloatMatrix(characteristics.get(CameraCharacteristics.SENSOR_FORWARD_MATRIX2));
             } catch (NullPointerException e) {

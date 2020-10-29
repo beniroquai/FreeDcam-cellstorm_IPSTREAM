@@ -3890,6 +3890,40 @@
         </camera2>
     </device>
 
+    <device name="Huawei_P9">
+        <models>
+            <item>VIE-L09</item>
+        </models>
+        <camera2>
+            <maxexposuretime>32000000</maxexposuretime>
+            <minexposuretime>10</minexposuretime>
+            <maxiso>52000</maxiso>
+        </camera2>
+    </device>
+
+    <device name="Huawei_P20">
+        <models>
+            <item>CLT-L09</item>
+        </models>
+        <camera2>
+            <maxexposuretime>32000000</maxexposuretime>
+            <minexposuretime>10</minexposuretime>
+            <maxiso>52000</maxiso>
+        </camera2>
+    </device>
+
+    <device name="Huawei_P20">
+        <models>
+            <item>CLT-L29</item>
+        </models>
+        <camera2>
+            <maxexposuretime>32000000</maxexposuretime>
+            <minexposuretime>10</minexposuretime>
+            <maxiso>52000</maxiso>
+        </camera2>
+    </device>
+
+
     <device name="Sony_XZ2_compact">
         <models>
             <item>H8314</item>

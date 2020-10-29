@@ -16,7 +16,7 @@ android {
         targetSdkVersion 27
         versionCode 159
         versionName '4.1'
-        applicationId "troop.com.freedcam"
+        applicationId "troop.com.freedcam_BUF"
         renderscriptTargetApi 19
         externalNativeBuild {
             ndkBuild {
